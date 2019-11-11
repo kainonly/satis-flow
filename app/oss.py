@@ -17,5 +17,8 @@ class Oss:
     def find(self, prefix: str) -> ObjectIterator:
         return ObjectIterator(self.bucket, prefix)
 
+    def add(self, object_name: str, local_file: str):
+        return self.bucket.put_object_from_file(object_name, local_file)
+
     def delete(self, lists):
         return self.bucket.batch_delete_objects(lists)
