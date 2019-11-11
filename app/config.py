@@ -10,3 +10,4 @@ class Config:
         self.password = parser['docker']['password']
         self.registry = parser['docker']['registry']
         self.repository = parser['docker']['repository']
+        self.external_url = parser['external']['url']

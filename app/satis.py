@@ -1,4 +1,3 @@
-import os
 import docker
 from .config import Config
 
@@ -23,25 +22,12 @@ class Satis:
         if image is None:
             self.client.images.pull(repository)
 
-    def factory_satis(self):
+    def factory_satis(self, volumes: dict):
         return self.client.containers.run(
             image=self._config.repository,
             command='build ./satis.json ./public',
             init=True,
             auto_remove=True,
-            volumes={
-                os.path.abspath('./factory/satis.json'): {
-                    'bind': '/build/satis.json',
-                    'mode': 'ro'
-                },
-                os.path.abspath('./factory/composer'): {
-                    'bind': '/composer',
-                    'mode': 'rw'
-                },
-                os.path.abspath('./factory/public'): {
-                    'bind': '/build/public',
-                    'mode': 'rw'
-                }
-            },
+            volumes=volumes,
             working_dir='/build'
         )
