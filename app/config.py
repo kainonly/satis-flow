@@ -11,3 +11,7 @@ class Config:
         self.registry = parser['docker']['registry']
         self.repository = parser['docker']['repository']
         self.external_url = parser['external']['url']
+        self.access_key_id = parser['oss']['access_key_id']
+        self.access_key_secret = parser['oss']['access_key_secret']
+        self.endpoint = parser['oss']['endpoint']
+        self.bucket_name = parser['oss']['bucket_name']
