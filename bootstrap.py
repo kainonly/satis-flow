@@ -1,5 +1,5 @@
 from app import Config, Satis, Oss
-from os import path, walk, unlink
+from os import path, walk, unlink, mkdir
 from json import dumps
 from time import time
 import utils
@@ -9,9 +9,19 @@ try:
     config = Config()
     satis = Satis(config)
     oss = Oss(config)
+
     satis_path = path.abspath('./factory/satis.json')
     public_path = path.abspath('./factory/public')
     composer_path = path.abspath('./factory/composer')
+
+    if path.exists('./factory') is False:
+        mkdir('./factory')
+
+    if path.exists(public_path) is False:
+        mkdir(public_path)
+
+    if path.exists(composer_path) is False:
+        mkdir(composer_path)
 
     print('登录私有仓库')
     satis.registry_login()
