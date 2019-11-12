@@ -18,10 +18,7 @@
 
 - **docker**
   - **base_url** 连接地址
-  - **username** 用户名(如果使用私有源)
-  - **password** 用户密码
-  - **registry** 私有源
-  - **repository** 镜像地址
+  - **repository** 镜像地址（如果是私有源，请先手动登录）
 - **external**
   - **url** 网络回调接口地址（生成satis.json）
 - **oss** 阿里云 OSS 对象存储配置
