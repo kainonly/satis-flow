@@ -23,12 +23,6 @@ try:
     if path.exists(composer_path) is False:
         mkdir(composer_path)
 
-    print('登录私有仓库')
-    satis.registry_login()
-
-    print('验证镜像有效性')
-    satis.image_check_exists()
-
     print('正在获取外部接口...')
     response = utils.links_satis(config.external_url)
     if response.status_code != 200:
