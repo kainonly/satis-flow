@@ -1,0 +1,3 @@
+[submodule "satis"]
+	path = satis
+	url = https://github.com/composer/satis.git
