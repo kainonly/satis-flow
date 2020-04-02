@@ -19,6 +19,12 @@ git submodule foreach git checkout master
 git submodule foreach git pull
 ```
 
+安装依赖
+
+```shell script
+cd satis && composer update -o
+```
+
 调整 php 配置内存上限，修改文件 `satis/bin/satis`
 
 ```php
