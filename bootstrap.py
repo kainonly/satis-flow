@@ -14,13 +14,13 @@ try:
         mkdir(public_path)
 
     response = requests.get(config.external_url)
-    if (response.status_code != 200):
+    if response.status_code != 200:
         raise Exception(response.reason)
 
     with open('./satis.json', 'wb') as fb:
         fb.write(response.content)
 
-    if (platform.system() == 'Windows'):
+    if platform.system() == 'Windows':
         subprocess.run(['satis\\bin\\satis.bat', '--verbose', 'build', 'satis.json', public_path])
     else:
         subprocess.run(['php', 'satis/bin/satis', '--verbose', 'build', 'satis.json', public_path])
